@@ -7,7 +7,7 @@ import com.github.hanyaeger.api.userinput.MouseExitListener;
 import javafx.scene.paint.Color;
 import org.example.util.GameConstants;
 
-public class TileDrawer extends RectangleEntity implements MouseEnterListener, MouseExitListener {
+public class TileDrawer extends RectangleEntity {
 
     private final Color defaultColor;
     private Color gameHighlightColor;
@@ -17,7 +17,6 @@ public class TileDrawer extends RectangleEntity implements MouseEnterListener, M
     public final Color selectedTileColor = GameConstants.SELECTED_TILE_COLOR;
     public final Color validMovesTileColor = GameConstants.VALID_MOVE_TILE_COLOR;
     public final Color attackableTileColor = GameConstants.ATTACK_TILE_COLOR;
-    private final Color hoverOverTileColor = GameConstants.HOVER_TILE_COLOR;
     private final Color fogColor = GameConstants.FOG_COLOR;
 
     private final Coordinate2D location;
@@ -56,20 +55,8 @@ public class TileDrawer extends RectangleEntity implements MouseEnterListener, M
         setFill(defaultColor);
     }
 
-    @Override
-    public void onMouseEntered() {
-        setFill(hoverOverTileColor);
-    }
-
-    @Override
-    public void onMouseExited() {
-        setFill(currentDisplayColor);
-    }
-
-
-    public void setFog() {
+    public void enableFog() {
         isFogged = true;
-        //setFill(averageColor(this.defaultColor, fogColor).darker());
         if (this.defaultColor == Color.WHITE) {
             setFill((fogColor).brighter());
         } else {

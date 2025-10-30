@@ -11,10 +11,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Invisible mouse cursor entity that follows the mouse and detects collisions with tiles and chess pieces.
- * This enables collision-based hover detection.
- */
 public class MouseCursor extends CircleEntity implements Collided, MouseMovedListener {
 
     private final Set<TileCollider> previouslyCollidingTiles = new HashSet<>();

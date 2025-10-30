@@ -63,7 +63,7 @@ public class BoardView {
             if (visiblePositions.contains(pos)) {
                 tileDrawers[row][col].clearFog();
             } else {
-                tileDrawers[row][col].setFog();
+                tileDrawers[row][col].enableFog();
             }
         });
     }
